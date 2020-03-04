@@ -7,26 +7,28 @@ class HandAction
   end
 
   def who_wins
+    computer_choice = calc_computer_choice
     puts computer_choice
-    case player_choice 
-
+    
     if player_choice == computer_choice
-      puts 'Draw'
-    end
-    when 'Rock'
-      case computer_choice
-      when 'Paper'then computer_wins
-      when 'Scissors' then player_wins
-      end
-    when 'Scissors'
-      case computer_choice
-      when 'Paper' then player_wins
-      when 'Rock' then computer_wins
-      end
-    when 'Paper'
-      case computer_choice
-      when 'Rock' then player_wins
-      when 'Scissors' then computer_wins
+     puts 'Draw'
+    else
+      case player_choice 
+        when 'Rock'
+          case computer_choice
+            when 'Paper' then computer_wins
+            when 'Scissors' then player_wins
+          end
+        when 'Scissors'
+          case computer_choice
+            when 'Paper' then player_wins
+            when 'Rock' then computer_wins
+          end
+        when 'Paper'
+          case computer_choice
+            when 'Rock' then player_wins
+            when 'Scissors' then computer_wins
+          end
       end
     end
   end
@@ -41,7 +43,7 @@ class HandAction
     puts 'Computer wins'
   end
 
-  def computer_choice
+  def calc_computer_choice
     choice = rand(1..3)
     case choice
     when 1 then 'Rock'
