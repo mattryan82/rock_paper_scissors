@@ -7,7 +7,6 @@ class HandAction
     @player_choice = player_choice
     @computer_choice = computer_choice
     @game = game
-    # game.inc_player
   end
 
   def who_wins
