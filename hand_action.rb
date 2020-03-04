@@ -1,12 +1,13 @@
 require './game.rb'
 
 class HandAction
-  attr_reader :computer_choice, :player_choice, :game
+  attr_accessor :computer_choice, :player_choice, :game
 
   def initialize(player_choice:, game:)
     @player_choice = player_choice
     @computer_choice = computer_choice
-     @game = game
+    @game = game
+    # game.inc_player
   end
 
   def who_wins
@@ -36,16 +37,14 @@ class HandAction
     end
   end
 
-  private 
-
   def player_wins
     puts 'Player wins'
-    game.player_wins
+    game.inc_player
   end
 
   def computer_wins
     puts 'Computer wins'
-    game.computer_wins
+    game.inc_computer
   end
 
   def calc_computer_choice
@@ -57,3 +56,4 @@ class HandAction
     end
   end
 end
+
